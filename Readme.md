@@ -28,7 +28,6 @@ LittleAnim is a 2D animation framework for .NET. It enables the programmatic cre
     ├── LICENSE
     ├── LittleAnim.csproj
     ├── MoveAnimation.cs
-    ├── Program.cs
     └── TextDrawable.cs
 ```
 
