@@ -13,16 +13,8 @@ namespace LittleAnim
 						Color = color;
 						Text = text;
 				}
-
-				public override void Draw(ICanvas canvas, float time)
+				public override void Draw(ICanvas canvas)
 				{
-						foreach (var animation in Animations)
-						{
-								if (animation.IsActive(time))
-								{
-										animation.Apply(this, time);
-								}
-						}
 						canvas.DrawText(Text, Position, Font, Color);
 				}
 		}

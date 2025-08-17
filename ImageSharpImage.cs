@@ -1,24 +1,24 @@
 ﻿using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LittleAnim
 {
-		class ImageSharpImage : IImage
+		class ImageSharpImage : IImage<Image<Rgba32>>
 		{
-				private readonly Image Image;
-				public ImageSharpImage(Image image)
+				private readonly Image<Rgba32> _image;
+				public ImageSharpImage(Image<Rgba32> image)
 				{
-						Image = image.Clone(ctx => { });
+						_image = image.Clone();
 				}
 
+				public Image<Rgba32> GetImage()
+				{
+						return _image;
+				}
 				public void Save(string path)
 				{
-						Image.SaveAsPng(path);
+						_image.SaveAsPng(path);
 				}
 		}
 }

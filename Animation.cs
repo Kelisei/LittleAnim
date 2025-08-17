@@ -2,16 +2,16 @@
 {
 		abstract class Animation
 		{
-				public float StartTime { get; }
-				public float Duration { get; }
+				protected float _startTime { get; set; }
+				protected float _duration { get; set;  }
 
 				protected Animation(float startTime, float duration)
 				{
-						StartTime = startTime;
-						Duration = duration;
+						_startTime = startTime;
+						_duration = duration;
 				}
 
-				public bool IsActive(float t) => t >= StartTime && t <= StartTime + Duration;
+				public bool IsActive(float t) => t >= _startTime && t <= _startTime + _duration;
 
 				public abstract void Apply(Drawable target, float time);
 		}
