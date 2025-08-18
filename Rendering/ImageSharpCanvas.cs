@@ -1,4 +1,5 @@
-﻿using SixLabors.Fonts;
+﻿using LittleAnim.Common;
+using SixLabors.Fonts;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Drawing;
 using SixLabors.ImageSharp.Drawing.Processing;
@@ -6,7 +7,7 @@ using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
 using System.Numerics;
 
-namespace LittleAnim
+namespace LittleAnim.Rendering
 {
 		class ImageSharpCanvas : ICanvas, IDisposable
 		{
@@ -21,7 +22,7 @@ namespace LittleAnim
 						_image = new Image<Rgba32>(width, height);
 				}
 
-				public void Clear(LittleAnim.Color backgroundColor)
+				public void Clear(Common.Color backgroundColor)
 				{
 						SixLabors.ImageSharp.Color color = new SixLabors.ImageSharp.Color(
 								new Rgba32(backgroundColor.R, backgroundColor.G, backgroundColor.B, backgroundColor.A));
@@ -33,7 +34,7 @@ namespace LittleAnim
 				{
 						_image.Dispose();
 				}
-				public void DrawBox(Vector2 position, float width, float height, Color fillColor, Color? strokeColor = null, float strokeWidth = 1)
+				public void DrawBox(Vector2 position, float width, float height, Common.Color fillColor, Common.Color? strokeColor = null, float strokeWidth = 1)
 				{
 						var rect = new RectangularPolygon(position.X, position.Y, width, height);
 						_image.Mutate(ctx =>
@@ -47,7 +48,7 @@ namespace LittleAnim
 						});
 				}
 
-				public void DrawCircle(Vector2 center, float radius, Color fillColor, Color? strokeColor = null, float strokeWidth = 1)
+				public void DrawCircle(Vector2 center, float radius, Common.Color fillColor, Common.Color? strokeColor = null, float strokeWidth = 1)
 				{
 						var circle = new EllipsePolygon(center.X, center.Y, radius);
 
@@ -78,7 +79,7 @@ namespace LittleAnim
 				}
 
 
-				public void DrawLine(Vector2 start, Vector2 end, Color color, float width)
+				public void DrawLine(Vector2 start, Vector2 end, Common.Color color, float width)
 				{
 						var line = new SixLabors.ImageSharp.Drawing.Path(
 										new LinearLineSegment(
@@ -92,7 +93,7 @@ namespace LittleAnim
 				}
 
 
-				public void DrawText(string text, Vector2 position, Font font, LittleAnim.Color color)
+				public void DrawText(string text, Vector2 position, Common.Font font, Common.Color color)
 				{
 						if (!_fontFamilies.TryGetValue(font.FamilyName, out var fontFamily))
 						{
@@ -114,7 +115,7 @@ namespace LittleAnim
 						return new ImageSharpImage(_image);
 				}
 
-				private SixLabors.ImageSharp.Color ToSharpColor(LittleAnim.Color c)
+				private SixLabors.ImageSharp.Color ToSharpColor(Common.Color c)
 								=> SixLabors.ImageSharp.Color.FromRgba(c.R, c.G, c.B, c.A);
 
 				private PointF ToSharpPoint(Vector2 p)

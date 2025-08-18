@@ -1,4 +1,6 @@
-﻿namespace LittleAnim
+﻿using LittleAnim.Rendering;
+
+namespace LittleAnim.Exporters
 {
 	 interface IExporter
 		{

@@ -1,4 +1,4 @@
-﻿namespace LittleAnim
+﻿namespace LittleAnim.Rendering
 {
 		interface IImage
 		{

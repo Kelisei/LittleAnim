@@ -1,6 +1,8 @@
-﻿using System.Numerics;
+﻿using LittleAnim.Animations;
+using LittleAnim.Rendering;
+using System.Numerics;
 
-namespace LittleAnim
+namespace LittleAnim.Drawables
 {
 		abstract class Drawable(Vector2 position)
 		{
@@ -9,7 +11,7 @@ namespace LittleAnim
 				protected List<Animation> Animations { get; set; } = new List<Animation>();
 				public void AddAnimation(Animation animation)
 				{
-						this.Animations.Add(animation);
+						Animations.Add(animation);
 				}
 				public abstract void Draw(ICanvas canvas);
 				public void Update(float time)

@@ -1,4 +1,6 @@
-﻿namespace LittleAnim
+﻿using LittleAnim.Drawables;
+
+namespace LittleAnim.Animations
 {
 		abstract class Animation
 		{

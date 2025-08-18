@@ -1,4 +1,8 @@
-﻿namespace LittleAnim
+﻿using LittleAnim.Drawables;
+using LittleAnim.Exporters;
+using LittleAnim.Rendering;
+
+namespace LittleAnim.Core
 {
 		class Engine(uint fps, TimeSpan duration, ICanvas canvas, IExporter exporter)
 		{
@@ -18,7 +22,7 @@
 								for (int i = 0; i < totalFrames; i++)
 								{
 										float time = i / (float)_fps;
-										_canvas.Clear(new Color(255, 255, 255, 255));
+										_canvas.Clear(new Common.Color(255, 255, 255, 255));
 
 										foreach (Drawable drawable in _drawables)
 										{
@@ -41,7 +45,7 @@
 
 				public void AddDrawable(Drawable drawable)
 				{
-						this._drawables.Add(drawable);
+						_drawables.Add(drawable);
 				}
 		}
 }

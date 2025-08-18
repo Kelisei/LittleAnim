@@ -2,7 +2,7 @@
 using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
 
-namespace LittleAnim
+namespace LittleAnim.Rendering
 {
 		class ImageSharpImage : IImage<Image<Rgba32>>
 		{

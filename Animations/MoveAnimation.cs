@@ -1,8 +1,9 @@
-﻿using System.Numerics;
+﻿using LittleAnim.Drawables;
+using System.Numerics;
 
-namespace LittleAnim
+namespace LittleAnim.Animations
 {
-		internal class MoveAnimation : Animation
+		class MoveAnimation : Animation
 		{
 				private Vector2 _from;
 				private Vector2 _to;
@@ -10,8 +11,8 @@ namespace LittleAnim
 				public MoveAnimation(float startTime, float duration, Vector2 from, Vector2 to)
 								: base(startTime, duration)
 				{
-						this._from = from;
-						this._to = to;
+						_from = from;
+						_to = to;
 				}
 
 				public override void Apply(Drawable target, float time)

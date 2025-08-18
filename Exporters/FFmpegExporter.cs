@@ -1,11 +1,12 @@
 ﻿using FFMpegCore;
 using FFMpegCore.Enums;
+using LittleAnim.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-namespace LittleAnim
+namespace LittleAnim.Exporters
 {
 		class FFmpegExporter : IExporter
 		{
@@ -14,7 +15,7 @@ namespace LittleAnim
 				private string _outputPath;
 				private uint _fps;
 				private int _frameCounter;
-				private List<String> _framePaths = new List<String>();
+				private List<string> _framePaths = new List<string>();
 
 				public void Start(string outputPath, uint fps, int width, int height)
 				{
@@ -41,12 +42,12 @@ namespace LittleAnim
 										var pattern = Path.Combine(_tempPath, "frame_%05d.png");
 										bool ok = FFMpegArguments
 												.FromFileInput(pattern, verifyExists: false, opt => opt
-																.WithFramerate((double)_fps)
+																.WithFramerate(_fps)
 																.ForceFormat("image2"))
 												.OutputToFile(_outputPath, overwrite: true, opt => opt
 																.WithVideoCodec(VideoCodec.LibX264)
 																.ForcePixelFormat("yuv420p")
-																.WithFramerate((double)_fps))
+																.WithFramerate(_fps))
 												.ProcessSynchronously();
 										if (!ok)
 										{

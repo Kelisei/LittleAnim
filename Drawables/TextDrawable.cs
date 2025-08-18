@@ -1,8 +1,10 @@
-﻿using System.Numerics;
+﻿using LittleAnim.Common;
+using LittleAnim.Rendering;
+using System.Numerics;
 
-namespace LittleAnim
+namespace LittleAnim.Drawables
 {
-		internal class TextDrawable : Drawable
+		class TextDrawable : Drawable
 		{
 				public Font Font { get; set; }
 				public string Text { get; set; }
