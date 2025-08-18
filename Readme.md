@@ -13,24 +13,31 @@ LittleAnim is a 2D animation framework for .NET. It enables the programmatic cre
 ## Directory Structure
 
 ```
+Directory structure:
 └── kelisei-littleanim/
     ├── Readme.md
-    ├── Animation.cs
-    ├── Color.cs
     ├── Dockerfile
-    ├── Drawable.cs
-    ├── Engine.cs
-    ├── FFmpegExporter.cs
-    ├── Font.cs
-    ├── ICanvas.cs
-    ├── IExporter.cs
-    ├── IImage.cs
-    ├── ImageSharpCanvas.cs
-    ├── ImageSharpImage.cs
     ├── LICENSE
     ├── LittleAnim.csproj
-    ├── MoveAnimation.cs
-    └── TextDrawable.cs
+    ├── Animations/
+    │   ├── Animation.cs
+    │   └── MoveAnimation.cs
+    ├── Common/
+    │   ├── Color.cs
+    │   └── Font.cs
+    ├── Core/
+    │   └── Engine.cs
+    ├── Drawables/
+    │   ├── Drawable.cs
+    │   └── TextDrawable.cs
+    ├── Exporters/
+    │   ├── FFmpegExporter.cs
+    │   └── IExporter.cs
+    └── Rendering/
+        ├── ICanvas.cs
+        ├── IImage.cs
+        ├── ImageSharpCanvas.cs
+        └── ImageSharpImage.cs
 ```
 
 ## Getting Started
