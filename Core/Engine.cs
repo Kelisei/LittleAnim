@@ -6,31 +6,31 @@ namespace LittleAnim.Core
 {
 		class Engine(uint fps, TimeSpan duration, ICanvas canvas, IExporter exporter)
 		{
-				private uint _fps { get; set; } = fps;
-				private TimeSpan _duration { get; set; } = duration;
-				private List<Drawable> _drawables { get; set; } = new List<Drawable>();
-				private ICanvas _canvas { get; set; } = canvas;
-				private IExporter _exporter { get; set; } = exporter;
+				private uint Fps { get; set; } = fps;
+				private TimeSpan Duration { get; set; } = duration;
+				private List<Drawable> Drawables { get; set; } = [];
+				private ICanvas Canvas { get; set; } = canvas;
+				private IExporter Exporter { get; set; } = exporter;
 				public void Export(string outputPath)
 				{
 						try
 						{
-								_exporter.Start(outputPath, _fps, _canvas.Width, _canvas.Height);
+								Exporter.Start(outputPath, Fps, Canvas.Width, Canvas.Height);
 
-								long totalFrames = (long)(_duration.TotalSeconds * _fps);
+								long totalFrames = (long)(Duration.TotalSeconds * Fps);
 
 								for (int i = 0; i < totalFrames; i++)
 								{
-										float time = i / (float)_fps;
-										_canvas.Clear(new Common.Color(255, 255, 255, 255));
+										float time = i / (float)Fps;
+										Canvas.Clear(new Common.Color(255, 255, 255, 255));
 
-										foreach (Drawable drawable in _drawables)
+										foreach (Drawable drawable in Drawables)
 										{
 												drawable.Update(time);
-												drawable.Draw(_canvas);
+												drawable.Draw(Canvas);
 										}
 
-										_exporter.AddFrame(_canvas.GetCurrent());
+										Exporter.AddFrame(Canvas.GetCurrent());
 								}
 						}
 						catch (Exception ex) 
@@ -39,13 +39,13 @@ namespace LittleAnim.Core
 						}
 						finally
 						{
-								_exporter.Finish();
+								Exporter.Finish();
 						}
     }
 
 				public void AddDrawable(Drawable drawable)
 				{
-						_drawables.Add(drawable);
+						Drawables.Add(drawable);
 				}
 		}
 }

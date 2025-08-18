@@ -1,12 +1,8 @@
 ﻿namespace LittleAnim.Common
 {
-		public struct Color
+		public struct Color(byte r, byte g, byte b, byte a = 255)
 		{
-				public byte R, G, B, A;
-				public Color(byte r, byte g, byte b, byte a = 255)
-				{
-						R = r; G = g; B = b; A = a;
-				}
+				public byte R = r, G = g, B = b, A = a;
 		}
 
 }

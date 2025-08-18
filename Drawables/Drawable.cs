@@ -8,7 +8,7 @@ namespace LittleAnim.Drawables
 		{
 				public Vector2 Position { get; set; } = position;
 
-				protected List<Animation> Animations { get; set; } = new List<Animation>();
+				protected List<Animation> Animations { get; set; } = [];
 				public void AddAnimation(Animation animation)
 				{
 						Animations.Add(animation);

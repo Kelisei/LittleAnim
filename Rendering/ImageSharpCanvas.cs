@@ -11,8 +11,8 @@ namespace LittleAnim.Rendering
 {
 		class ImageSharpCanvas : ICanvas, IDisposable
 		{
-				private Image<Rgba32> _image;
-				private readonly Dictionary<string, FontFamily> _fontFamilies = new();
+				private readonly Image<Rgba32> _image;
+				private readonly Dictionary<string, FontFamily> _fontFamilies = [];
 				public int Width => _image.Width;
 				public int Height => _image.Height;
 
@@ -24,7 +24,7 @@ namespace LittleAnim.Rendering
 
 				public void Clear(Common.Color backgroundColor)
 				{
-						SixLabors.ImageSharp.Color color = new SixLabors.ImageSharp.Color(
+						SixLabors.ImageSharp.Color color = new(
 								new Rgba32(backgroundColor.R, backgroundColor.G, backgroundColor.B, backgroundColor.A));
 
 						_image.Mutate(ctx => ctx.Fill(color));
@@ -97,7 +97,7 @@ namespace LittleAnim.Rendering
 				{
 						if (!_fontFamilies.TryGetValue(font.FamilyName, out var fontFamily))
 						{
-								FontCollection collection = new FontCollection();
+								FontCollection collection = new();
 								FontFamily family = collection.Add(font.Path);
 								_fontFamilies.Add(font.FamilyName, family);
 								fontFamily = family;
@@ -115,10 +115,14 @@ namespace LittleAnim.Rendering
 						return new ImageSharpImage(_image);
 				}
 
-				private SixLabors.ImageSharp.Color ToSharpColor(Common.Color c)
-								=> SixLabors.ImageSharp.Color.FromRgba(c.R, c.G, c.B, c.A);
+				private static SixLabors.ImageSharp.Color ToSharpColor(Common.Color c)
+				{
+						return SixLabors.ImageSharp.Color.FromRgba(c.R, c.G, c.B, c.A);
+				}
 
-				private PointF ToSharpPoint(Vector2 p)
-								=> new PointF(p.X, p.Y);
+				private static PointF ToSharpPoint(Vector2 p)
+				{
+						return new PointF(p.X, p.Y);
+				}
 		}
 }

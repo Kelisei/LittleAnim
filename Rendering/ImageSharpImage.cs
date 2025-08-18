@@ -4,13 +4,9 @@ using SixLabors.ImageSharp.Processing;
 
 namespace LittleAnim.Rendering
 {
-		class ImageSharpImage : IImage<Image<Rgba32>>
+		class ImageSharpImage(Image<Rgba32> image) : IImage<Image<Rgba32>>
 		{
-				private readonly Image<Rgba32> _image;
-				public ImageSharpImage(Image<Rgba32> image)
-				{
-						_image = image.Clone();
-				}
+				private readonly Image<Rgba32> _image = image.Clone();
 
 				public Image<Rgba32> GetImage()
 				{

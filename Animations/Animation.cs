@@ -2,18 +2,12 @@
 
 namespace LittleAnim.Animations
 {
-		abstract class Animation
+		abstract class Animation(float startTime, float duration)
 		{
-				protected float _startTime { get; set; }
-				protected float _duration { get; set;  }
+				protected float StartTime { get; set; } = startTime;
+				protected float Duration { get; set; } = duration;
 
-				protected Animation(float startTime, float duration)
-				{
-						_startTime = startTime;
-						_duration = duration;
-				}
-
-				public bool IsActive(float t) => t >= _startTime && t <= _startTime + _duration;
+				public bool IsActive(float t) => t >= StartTime && t <= StartTime + Duration;
 
 				public abstract void Apply(Drawable target, float time);
 		}

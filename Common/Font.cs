@@ -1,15 +1,9 @@
 ﻿namespace LittleAnim.Common
 {
-		public struct Font
+		public readonly struct Font(string familyName, float size, string path)
 		{
-				public string FamilyName { get; }
-				public float Size { get; }
-				public string Path { get; }
-				public Font(string familyName, float size, string path)
-				{
-						FamilyName = familyName;
-						Size = size;
-						Path = path;
-				}
+				public string FamilyName { get; } = familyName;
+				public float Size { get; } = size;
+				public string Path { get; } = path;
 		}
 }

@@ -1,11 +1,6 @@
 ﻿using FFMpegCore;
 using FFMpegCore.Enums;
 using LittleAnim.Rendering;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 namespace LittleAnim.Exporters
 {
 		class FFmpegExporter : IExporter
@@ -15,7 +10,7 @@ namespace LittleAnim.Exporters
 				private string _outputPath;
 				private uint _fps;
 				private int _frameCounter;
-				private List<string> _framePaths = new List<string>();
+				private readonly List<string> _framePaths = [];
 
 				public void Start(string outputPath, uint fps, int width, int height)
 				{

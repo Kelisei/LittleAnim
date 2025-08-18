@@ -3,21 +3,14 @@ using System.Numerics;
 
 namespace LittleAnim.Animations
 {
-		class MoveAnimation : Animation
+		class MoveAnimation(float startTime, float duration, Vector2 from, Vector2 to) : Animation(startTime, duration)
 		{
-				private Vector2 _from;
-				private Vector2 _to;
-
-				public MoveAnimation(float startTime, float duration, Vector2 from, Vector2 to)
-								: base(startTime, duration)
-				{
-						_from = from;
-						_to = to;
-				}
+				private Vector2 _from = from;
+				private Vector2 _to = to;
 
 				public override void Apply(Drawable target, float time)
 				{
-						float progress = (time - _startTime) / _duration;
+						float progress = (time - StartTime) / Duration;
 						progress = Math.Clamp(progress, 0f, 1f);
 
 						target.Position = Vector2.Lerp(_from, _to, progress);
