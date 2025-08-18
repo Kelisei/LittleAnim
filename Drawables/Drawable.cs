@@ -10,7 +10,6 @@ namespace LittleAnim.Drawables
 		/// animations over time and to draw the object.  
 		/// Subclasses must implement <see cref="Draw"/> to define rendering behavior.
 		/// </summary>
-
 		abstract class Drawable(Vector2 position)
 		{
 				public Vector2 Position { get; set; } = position;
