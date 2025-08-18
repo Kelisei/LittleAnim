@@ -137,7 +137,8 @@ docker build -t littleanim .
 
 # Run the container (ensure you mount a volume to get the output files)
 docker run --rm -v "C:/Path/To/Your/Output/Folder:/app/output" littleanim
-```*Note: You may need to adjust the `Dockerfile` to install FFmpeg, and update the font and output paths in `Program.cs` to function correctly within the container.*
+```
+*Note: You may need to adjust the `Dockerfile` to install FFmpeg, and update the font and output paths in `Program.cs` to function correctly within the container.*
 
 ## License
 
