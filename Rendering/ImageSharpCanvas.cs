@@ -9,6 +9,12 @@ using System.Numerics;
 
 namespace LittleAnim.Rendering
 {
+		/// <summary>
+		/// Implementation of <see cref="ICanvas"/> using SixLabors.ImageSharp.  
+		/// Provides methods to draw shapes, text, images, and lines onto an ImageSharp canvas.  
+		/// Supports clearing, retrieving the current frame as an <see cref="IImage"/>, and manages font resources internally.  
+		/// Implements <see cref="IDisposable"/> to free image resources.
+		/// </summary>
 		class ImageSharpCanvas : ICanvas, IDisposable
 		{
 				private readonly Image<Rgba32> _image;

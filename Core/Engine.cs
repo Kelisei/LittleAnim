@@ -4,6 +4,14 @@ using LittleAnim.Rendering;
 
 namespace LittleAnim.Core
 {
+		/// <summary>
+		/// Main rendering and export engine.  
+		/// Controls the animation loop by iterating frames according to FPS and duration,  
+		/// updating and drawing all registered drawables onto the canvas, and passing  
+		/// rendered frames to the configured exporter.  
+		/// Use <see cref="AddDrawable"/> to register drawables and <see cref="Export"/>  
+		/// to generate the final output.
+		/// </summary>
 		class Engine(uint fps, TimeSpan duration, ICanvas canvas, IExporter exporter)
 		{
 				private uint Fps { get; set; } = fps;

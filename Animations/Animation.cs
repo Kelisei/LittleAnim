@@ -2,6 +2,12 @@
 
 namespace LittleAnim.Animations
 {
+		/// <summary>
+		/// Base class for animations applied to drawables.  
+		/// Defines a start time and duration, and provides a method to check  
+		/// if the animation is active at a given time.  
+		/// Subclasses must implement <see cref="Apply"/> to modify the target drawable.
+		/// </summary>
 		abstract class Animation(float startTime, float duration)
 		{
 				protected float StartTime { get; set; } = startTime;

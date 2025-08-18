@@ -3,6 +3,12 @@ using FFMpegCore.Enums;
 using LittleAnim.Rendering;
 namespace LittleAnim.Exporters
 {
+		/// <summary>
+		/// Exports a sequence of images to a video file using FFmpeg.  
+		/// Manages temporary storage of frames, adds frames via <see cref="AddFrame"/>,  
+		/// and compiles them into a video with <see cref="Finish"/>.  
+		/// Use <see cref="Start"/> to initialize export settings like output path and FPS.
+		/// </summary>
 		class FFmpegExporter : IExporter
 		{
 				private string _tempPath;

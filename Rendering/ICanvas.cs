@@ -4,6 +4,11 @@ using System.Numerics;
 
 namespace LittleAnim.Rendering
 {
+		/// <summary>
+		/// Represents a drawable canvas.  
+		/// Provides methods for clearing, drawing shapes, text, images, and retrieving the current frame.  
+		/// Implementations define how drawing operations are rendered and stored.
+		/// </summary>
 		interface ICanvas
 		{
 				public int Width { get; }
